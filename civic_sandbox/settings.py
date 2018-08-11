@@ -45,6 +45,9 @@ if DEBUG == True:
         'django_filters',
         'rest_framework',
         'rest_framework_swagger',
+        'rest_framework_gis',
+        'neighborhood_development_18',
+        'registry',
         ]
 
 else:
@@ -61,6 +64,9 @@ else:
         'django_filters',
         'rest_framework',
         'rest_framework_swagger',
+        'rest_framework_gis',
+        'neighborhood_development_18',
+        'registry',
         ]
 
 MIDDLEWARE = [
@@ -101,7 +107,7 @@ WSGI_APPLICATION = 'civic_sandbox.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
         'NAME': os.environ.get('POSTGRES_NAME'),
         'USER': os.environ.get('POSTGRES_USER'),
@@ -114,7 +120,7 @@ if DEBUG == False:
 
     DATABASES = {
         'default': {
-            'ENGINE': 'django_db_geventpool.backends.postgresql_psycopg2',
+            'ENGINE': 'django.contrib.gis.db.backends.postgis',
             'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
             'NAME': os.environ.get('POSTGRES_NAME'),
             'USER': os.environ.get('POSTGRES_USER'),

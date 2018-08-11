@@ -1,3 +1,5 @@
+.vscode 
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -86,6 +88,10 @@ celerybeat-schedule
 .venv
 venv/
 ENV/
+
+## pipenv
+Pipfile
+Pipfile.lock
 
 # Spyder project settings
 .spyderproject
