@@ -13,59 +13,61 @@ from .all_layers import layers
 
 class SandboxMaker: 
     def __init__(self, layer_key):
-        self.app_label = layers[layer_key]['app_label']
-        self.db_table_name = layers[layer_key]['db_table_name']
-        self.id_column = layers[layer_key]['id_column']
-        self.id_column_type = layers[layer_key]['id_column_type']
-        self.geom_column = layers[layer_key]['geom_column']
-        self.geom_column_type = layers[layer_key]['geom_column_type']
-        self.multi_geom_class = layers[layer_key]['multi_geom_class']
-        self.primary_attribute_column = layers[layer_key]['primary_attribute_column']
-        self.primary_attribute_column_type = layers[layer_key]['primary_attribute_column_type']
-        self.secondary_attribute_column = layers[layer_key]['secondary_attribute_column']
-        self.secondary_attribute_column_type = layers[layer_key]['secondary_attribute_column_type']
-        self.date_attribute = layers[layer_key]['date_attribute'] ##todo rename column? for consistancy? 
-        self.date_column_type = layers[layer_key]['date_column_type']
-        self.default_date_filter = layers[layer_key]['default_date_filter']
         self.model_name = layers[layer_key]['model_name']
-        self.model_class = self.get_model()
+        # self.app_label = layers[layer_key]['app_label']
+        # self.db_table_name = layers[layer_key]['db_table_name']
+        # self.id_column = layers[layer_key]['id_column']
+        # self.id_column_type = layers[layer_key]['id_column_type']
+        # self.geom_column = layers[layer_key]['geom_column']
+        # self.geom_column_type = layers[layer_key]['geom_column_type']
+        self.multi_geom_class = layers[layer_key]['multi_geom_class']
+        # self.primary_attribute_column = layers[layer_key]['primary_attribute_column']
+        # self.primary_attribute_column_type = layers[layer_key]['primary_attribute_column_type']
+        # self.primary_attribute_column_args = layers[layer_key]['primary_attribute_column_args']
+        # self.secondary_attribute_column = layers[layer_key]['secondary_attribute_column']
+        # self.secondary_attribute_column_type = layers[layer_key]['secondary_attribute_column_type']
+        self.date_attribute_column = layers[layer_key]['date_attribute_column'] 
+        # self.date_attribute_column_type = layers[layer_key]['date_attribute_column_type']
+        self.default_date_filter = layers[layer_key]['default_date_filter']
+
+        # self.model_class = self.get_model()
         
 
-        
+    # def get_model(self):
 
-    def get_model(self):
 
-        class Meta:
-            managed = False
-            db_table = self.db_table_name
-            app_label = self.app_label
+    #     class Meta:
+    #         managed = False
+    #         db_table = self.db_table_name
+    #         app_label = self.app_label
 
-        attrs = {
-            self.id_column: getattr(models, self.id_column_type)(primary_key=True),
-            'geom': getattr(models, self.geom_column_type)(db_column=self.geom_column),
-            '__module__': 'civic_sandbox.models', 
-            'Meta': Meta
-        }
+    #     attrs = {
+    #         self.id_column: getattr(models, self.id_column_type)(primary_key=True),
+    #         'geom': getattr(models, self.geom_column_type)(db_column=self.geom_column),
+    #         '__module__': 'civic_sandbox.models', 
+    #         'Meta': Meta
+    #     }
 
-        if self.primary_attribute_column is not None: 
-            attrs[self.primary_attribute_column] = getattr(models, self.primary_attribute_column_type)(max_length=300) ##TODO max_length dynamic or use TextField? 
+    #     if self.primary_attribute_column is not None: 
+    #         attrs[self.primary_attribute_column] = getattr(models, self.primary_attribute_column_type)(max_length=self.max_length)
                 
-        if self.secondary_attribute_column is not None: 
-            attrs[self.secondary_attribute_column] = getattr(models, self.secondary_attribute_column_type)(max_length=300)
+    #     if self.secondary_attribute_column is not None: 
+    #         attrs[self.secondary_attribute_column] = getattr(models, self.secondary_attribute_column_type)(max_length=300)
         
-        if self.date_attribute is not None: 
-            attrs[self.date_attribute] = getattr(models, self.date_column_type)(max_length=50) ##TODO max_length dynamic or use TextField? 
+    #     if self.date_attribute_column is not None: 
+    #         attrs[self.date_attribute_column] = getattr(models, self.date_attribute_column_type)(max_length=50) ##TODO max_length dynamic or use TextField? 
                 
 
-        SandboxModel = type(self.model_name, (models.Model,), attrs)
+    #     SandboxModel = type(self.model_name, (models.Model,), attrs)
 
-        return SandboxModel
+
+    #     return SandboxModel
     
     def get_serializer(self):
     
         class SandboxSerializer(GeoFeatureModelSerializer):
             class Meta:
-                model = self.model_class
+                model = self.model_name
                 fields = '__all__'
                 geo_field = 'geom'
 
@@ -80,12 +82,12 @@ class SandboxMaker:
 
             ## get data ##
             try:
-                if not self.date_attribute: 
-                    dataset = self.model_class.objects.all()
+                if not self.date_attribute_column: 
+                    dataset = self.model_name.objects.all()
                 else:
-                    variable_column = self.date_attribute
+                    variable_column = self.date_attribute_column
                     filter = variable_column + '__contains'
-                    dataset = self.model_class.objects.filter(**{ filter: date_filter })
+                    dataset = self.model_name.objects.filter(**{ filter: date_filter })
                     if settings.DEBUG: print('---------------------------------------')
                     if settings.DEBUG: print(filter)
                     if settings.DEBUG: print(date_filter)
@@ -95,9 +97,8 @@ class SandboxMaker:
             # calculate limit boundary meta #
                 coords = []
                 for each in dataset: 
-                    # my_geom = each.geom
      
-                    geom = getattr(each, self.geom_column)
+                    geom = getattr(each, 'geom')
      
                     if geom is not None: 
                     ## converts MultiPolygons to Polygons ##
@@ -111,12 +112,11 @@ class SandboxMaker:
 
                 if settings.DEBUG: print('boundary calculation complete')
                 
-            except self.model_class.DoesNotExist:
+            except self.model_name.DoesNotExist:
                 return Response(status.HTTP_404_NOT_FOUND)
 
             if settings.DEBUG: print(serializer_class)
             serializer = serializer_class(dataset, many=True)
-
 
 
             response= { 

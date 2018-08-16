@@ -1,7 +1,8 @@
 from django.contrib.gis.geos import GEOSGeometry, MultiPoint, MultiPolygon, MultiLineString
+from . import models
 
 layers = {
-        '001': { #TODO deal with unique keys in dicts in seperate files ##TODO add category groupings? 
+        'neighborhood_development_18_001': { 
             'app_label': 'neighborhood_development_18',
             'name': 'Bike Parking',
             'type': 'Slide',
@@ -15,40 +16,345 @@ layers = {
             'multi_geom_class': MultiPoint, 
             'primary_attribute_column': None,
             'primary_attribute_column_type': None,
+            'primary_attribute_column_args': None,
             'secondary_attribute_column': None, 
             'secondary_attribute_column_type': None,
-            'model_name': 'BikeParkingModel',
-            'date_attribute': None,
-            'date_column_type': None,
+            'model_name': models.BikeParking,
+            'date_attribute_column': None, 
+            'date_attribute_column_type': None,
             'date_granularity': None,
             'default_date_filter': '2017',
             'min_date_override': None, #TODO
             'max_date_override': None, #TODO
-          },
-        '011': {
+        },
+        'neighborhood_development_18_002': {
           'app_label': 'neighborhood_development_18',
+          'name': 'Bike Lanes',
+          'type': 'Slide',
+          'endpoint':'',
+          'visualization': 'PathMap',
+          'db_table_name': 'bike_lanes',
+          'id_column': 'objectid',
+          'id_column_type': 'IntegerField',
+          'geom_column': 'geom',
+          'geom_column_type': 'LineStringField',
+          'multi_geom_class': MultiLineString, 
+          'primary_attribute_column': None,
+          'primary_attribute_column_type': None,
+          'primary_attribute_column_args': None,
+          'secondary_attribute_column': None, 
+          'secondary_attribute_column_type': None,
+          'model_name': models.BikeLane,
+          'date_attribute_column': None, 
+          'date_attribute_column_type': None,
+          'date_granularity': None,
+          'default_date_filter': None,
+          'min_date_override': None,
+          'max_date_override': None,
+        },
+        'neighborhood_development_18_003': {
+          'name': 'Parks',
+          'type': 'Slide',
+          'endpoint':'',
+          'visualization': 'PolygonPlotMap',
+          'multi_geom_class': MultiPolygon, 
+          'model_name': models.Park,
+          'date_attribute_column': None, 
+          'date_granularity': None,
+          'default_date_filter': None,
+          'min_date': None,
+          'max_date': None,
+        },
+        'neighborhood_development_18_004': {
+          'name': 'Multi-use Trails',
+          'type': 'Slide',
+          'endpoint':'',
+          'visualization': 'PathMap',
+          'multi_geom_class': MultiLineString, 
+          'model_name': models.MultiuseTrail,
+          'date_attribute_column': None, 
+          'date_granularity': None,
+          'default_date_filter': None,
+          'min_date': None,
+          'max_date': None,
+        },
+        'neighborhood_development_18_005': {
+          'name': 'Community Gardens',
+          'type': 'Slide',
+          'endpoint':'',
+          'visualization': 'SmallPolygonMap',
+          'multi_geom_class': MultiPolygon, 
+          'model_name': models.CommunityGarden,
+          'date_attribute_column': None, 
+          'date_granularity': None,
+          'default_date_filter': None,
+          'min_date': None,
+          'max_date': None,
+        },
+        'neighborhood_development_18_008': {
+          'name': 'Bike Greenways',
+          'type': 'Slide',
+          'endpoint':'',
+          'visualization': 'PathMap',
+          'multi_geom_class': MultiLineString, 
+          'model_name': models.BikeGreenway,
+          'date_attribute_column': None, 
+          'date_granularity': None,
+          'default_date_filter': None,
+          'min_date': None,
+          'max_date': None,
+        },
+        # '008': {
+        #   'name': 'bike greenways',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/bikegreenways/',
+        #   'visualization': 'PathMap',
+        # }, 
+        # '009': {
+        #   'name': 'rail stops',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/railstops/',
+        #   'visualization': 'ScatterPlotMap',
+        # }, 
+        # '010': {
+        #   'name': 'grocery stores',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/retailgrocers/',
+        #   'visualization': 'ScatterPlotMap',
+        # },
+
+
+        'neighborhood_development_18_011': {
+        #   'app_label': 'neighborhood_development_18',
           'name': 'demolitions',
           'type': 'Slide',
           'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/demolitions/',
           'visualization': 'ScatterPlotMap',
-          'db_table_name': 'demolitions',
-          'id_column': 'objectid',
-          'id_column_type': 'IntegerField',
-          'geom_column': 'geom',
-          'geom_column_type': 'PointField',
+        #   'db_table_name': 'demolitions',
+        #   'id_column': 'objectid',
+        #   'id_column_type': 'IntegerField',
+        #   'geom_column': 'geom',
+        #   'geom_column_type': 'PointField',
           'multi_geom_class': MultiPoint, 
-          'primary_attribute_column': 'description',
-          'primary_attribute_column_type': 'CharField',
-          'secondary_attribute_column': None, 
-          'secondary_attribute_column_type': None,
-          'model_name': 'DemolitionsModel',
-          'date_attribute': 'year', ##rename as column 
-          'date_column_type': 'CharField',
+        #   'primary_attribute_column': 'description',
+        #   'primary_attribute_column_type': 'CharField',
+        #   'primary_attribute_column_args': 'max_length=50',
+        #   'secondary_attribute_column': None, 
+        #   'secondary_attribute_column_type': None,
+          'model_name': models.Demolition,
+          'date_attribute_column': 'year', 
+          'date_attribute_column_type': 'CharField',
           'date_granularity': 'year',
           'default_date_filter': '2018',
-          'min_date': '2000',
-          'max_date': '2018',
+          'min_date_override': '2000',
+          'max_date_override': '2018',
+  },
+          'neighborhood_development_18_045': {
+          'app_label': 'neighborhood_development_18',
+          'name': 'Monthly Campsite Reports',
+          'type': 'Foundation',
+          'endpoint':'',
+          'visualization': 'ChoroplethMap',
+          'db_table_name': 'campsite_reports_by_month_neigh',
+          'id_column': 'id',
+          'id_column_type': 'IntegerField',
+          'geom_column': 'geom',
+          'geom_column_type': 'GeometryField',
+          'multi_geom_class': MultiPolygon, 
+          'primary_attribute_column': 'name',
+          'primary_attribute_column_type': 'CharField',
+          'primary_attribute_column_args': '',
+          'secondary_attribute_column': None, 
+          'secondary_attribute_column_type': None,
+          'model_name': models.ReportsByMonth,
+          'date_attribute_column': 'formatted_date', 
+          'date_attribute_column_type': 'CharField',
+          'date_attribute_column_args': None,
+          'date_granularity': None,
+          'default_date_filter': '2018',
+          'min_date_override': '2000',
+          'max_date_override': '2018',
   },
 }
 
 
+        # '045': {
+        #   'name': 'Camp Reports',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/reportsbymonth/',
+        #   'visualization': 'ChoroplethMap',
+
+# # class ReportsByMonth(models.Model):
+# #     id = models.IntegerField(primary_key=True)
+# #     name = models.CharField(max_length=80)
+# #     formatted_date = models.CharField(max_length=50)
+# #     count = models.IntegerField()
+# #     geom = models.GeometryField()
+
+# #     class Meta:
+# #         managed = False
+# #         db_table = 'campsite_reports_by_month_neigh'
+
+
+
+
+        # '002': {
+        #   'name': 'bike lanes',
+        #   'endpoint': 'http://service.civicpdx.org/neighborhood-development/sandbox/slides/bikelanes/',
+        #   'visualization': 'PathMap',
+        # # }, 
+        # '003': {
+        #   'name': 'parks',
+        #   'endpoint': 'http://service.civicpdx.org/neighborhood-development/sandbox/slides/parks/',
+        #   'visualization': 'PolygonPlotMap',
+        # },
+        # '004': {
+        #   'name': 'multi-use trails',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/multiusetrails/',
+        #   'visualization': 'PathMap',
+        # },    
+        # '005': {
+        #   'name': 'community gardens',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/communitygardens/',
+        #   'visualization': 'SmallPolygonMap',
+        # },    
+        # '008': {
+        #   'name': 'bike greenways',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/bikegreenways/',
+        #   'visualization': 'PathMap',
+        # }, 
+        # '009': {
+        #   'name': 'rail stops',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/railstops/',
+        #   'visualization': 'ScatterPlotMap',
+        # }, 
+        # '010': {
+        #   'name': 'grocery stores',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/retailgrocers/',
+        #   'visualization': 'ScatterPlotMap',
+        # },
+        # '011': {
+        #   'name': 'demolitions',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/demolitions/',
+        #   'visualization': 'ScatterPlotMap',
+        # },
+        # '012': {
+        #   'name': 'camp sweeps',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/campsweeps/',
+        #   'visualization': 'ScatterPlotMap',
+        # },
+        # '013': {
+        #   'name': 'camp reports',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/campreports/',
+        #   'visualization': 'ScatterPlotMap',
+        # },
+        # '014': {
+        #   'name': 'bus stops',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/busstops/',
+        #   'visualization': 'ScatterPlotMap',
+        # },
+        # '035': {
+        #   'name': 'Bike Counts',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/bikecounts/',
+        #   'visualization': 'ScatterPlotMap',
+        # },
+        # '036': {
+        #   'name': 'Bike Estimates',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/bikeestimates/',
+        #   'visualization': 'ScatterPlotMap',
+        # },
+        # '007': {
+        #   'name': 'Total Population',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/population/',
+        #   'visualization': 'ChoroplethMap',
+        # },
+        # '018': {
+        #   'name': 'Median Houshold Income',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/income/',
+        #   'visualization': 'ChoroplethMap',
+        # },
+        # '019': {
+        #   'name': 'Median Gross Rent',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/grossrent/',
+        #   'visualization': 'ChoroplethMap',
+        # },
+        # '020': {
+        #   'name': 'Evictions',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/evictions/',
+        #   'visualization': 'ChoroplethMap',
+        # },
+        # '021': {
+        #   'name': 'Renter Occupied Households',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/renteroccupied/',
+        #   'visualization': 'ChoroplethMap',
+        # },
+        # '022': {
+        #   'name': 'Rent Burden',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/rentburden/',
+        #   'visualization': 'ChoroplethMap',
+        # },
+        # '024': {
+        #   'name': 'Households with Children',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/under18/',
+        #   'visualization': 'ChoroplethMap',
+        # },
+        # '025': {
+        #   'name': 'Households with Seniors',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/over65/',
+        #   'visualization': 'ChoroplethMap',
+        # },
+        # '026': {
+        #   'name': 'Housholders Living Alone',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/livingalone/',
+        #   'visualization': 'ChoroplethMap',
+        # },
+        # '027': {
+        #   'name': 'Owner Occupied Housholds',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/owneroccupied/',
+        #   'visualization': 'ChoroplethMap',
+        #  },
+        # '028': {
+        #   'name': 'Percent Renter Occupied',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/pctrenteroccupied/',
+        #   'visualization': 'ChoroplethMap',
+        # },
+        # '037': {
+        #   'name': 'Voters 18 to 25',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/voters18to25/',
+        #   'visualization': 'ChoroplethMap',
+        # },
+        # '038': {
+        #   'name': 'Voters 26 to 32',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/voters26to32/',
+        #   'visualization': 'ChoroplethMap',
+        # },
+        # '039': {
+        #   'name': 'Voters 33 to 39',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/voters33to39/',
+        #   'visualization': 'ChoroplethMap',
+        # },
+        # '040': {
+        #   'name': 'Voters 40 to 49',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/voters40to49/',
+        #   'visualization': 'ChoroplethMap',
+        # },
+        # '041': {
+        #   'name': 'Voters 50 plus',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/voters50plus/',
+        #   'visualization': 'ChoroplethMap',
+        # },
+        # '042': {
+        #   'name': 'Change in Ridership by Census Block',
+        #   'endpoint':'http://service.civicpdx.org/transportation-systems/sandbox/foundations/blockchange/',
+        #   'visualization': 'ChoroplethMap',
+        # },
+        # '043': {
+        #   'name': 'Eviction Rate',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/evictionrate/',
+        #   'visualization': 'ChoroplethMap',
+        # },
+        # '044': {
+        #   'name': 'Poverty Rate',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/povertyrate/',
+        #   'visualization': 'ChoroplethMap',
+        # },
+        # '045': {
+        #   'name': 'Camp Reports',
+        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/reportsbymonth/',
+        #   'visualization': 'ChoroplethMap',
