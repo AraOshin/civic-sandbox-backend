@@ -104,40 +104,38 @@ layers = {
           'min_date': None,
           'max_date': None,
         },
-        # '008': {
-        #   'name': 'bike greenways',
-        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/bikegreenways/',
-        #   'visualization': 'PathMap',
-        # }, 
-        # '009': {
-        #   'name': 'rail stops',
-        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/railstops/',
-        #   'visualization': 'ScatterPlotMap',
-        # }, 
-        # '010': {
-        #   'name': 'grocery stores',
-        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/retailgrocers/',
-        #   'visualization': 'ScatterPlotMap',
-        # },
-
-
+        'neighborhood_development_18_009': {
+          'name': 'Rail Stops',
+          'type': 'Slide',
+          'endpoint':'',
+          'visualization': 'ScatterPlotMap',
+          'multi_geom_class': MultiPoint, 
+          'model_name': models.RailStop,
+          'date_attribute_column': None, 
+          'date_granularity': None,
+          'default_date_filter': None,
+          'min_date': None,
+          'max_date': None,
+        },
+        'neighborhood_development_18_010': {
+          'name': 'Grocery Stores',
+          'type': 'Slide',
+          'endpoint':'',
+          'visualization': 'ScatterPlotMap',
+          'multi_geom_class': MultiPoint, 
+          'model_name': models.RailStop,
+          'date_attribute_column': None, 
+          'date_granularity': None,
+          'default_date_filter': None,
+          'min_date': None,
+          'max_date': None,
+        },
         'neighborhood_development_18_011': {
-        #   'app_label': 'neighborhood_development_18',
           'name': 'demolitions',
           'type': 'Slide',
           'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/demolitions/',
           'visualization': 'ScatterPlotMap',
-        #   'db_table_name': 'demolitions',
-        #   'id_column': 'objectid',
-        #   'id_column_type': 'IntegerField',
-        #   'geom_column': 'geom',
-        #   'geom_column_type': 'PointField',
           'multi_geom_class': MultiPoint, 
-        #   'primary_attribute_column': 'description',
-        #   'primary_attribute_column_type': 'CharField',
-        #   'primary_attribute_column_args': 'max_length=50',
-        #   'secondary_attribute_column': None, 
-        #   'secondary_attribute_column_type': None,
           'model_name': models.Demolition,
           'date_attribute_column': 'year', 
           'date_attribute_column_type': 'CharField',
@@ -145,100 +143,57 @@ layers = {
           'default_date_filter': '2018',
           'min_date_override': '2000',
           'max_date_override': '2018',
-  },
-          'neighborhood_development_18_045': {
+        },
+        'neighborhood_development_18_012': {
+          'app_label': 'neighborhood_development_18',
+          'name': 'Camp Sweeps',
+          'type': 'Slide',
+          'endpoint':'',
+          'visualization': 'ScatterPlotMap',
+          'multi_geom_class': MultiPoint, 
+          'model_name': models.CampSweep,
+          'date_attribute_column': None, ##TODO dates 
+          'date_attribute_column_type': 'CharField',
+          'date_granularity': None,
+          'default_date_filter': None, ##TODO dates 
+          'min_date_override': 'todo',
+          'max_date_override': 'todo',
+        },
+        'neighborhood_development_18_013': {
+          'app_label': 'neighborhood_development_18',
+          'name': 'Camp Reports',
+          'type': 'Slide',
+          'endpoint':'',
+          'visualization': 'ScatterPlotMap',
+          'multi_geom_class': MultiPoint, 
+          'model_name': models.CampReport,
+          'date_attribute_column': None, ##TODO dates 
+          'date_attribute_column_type': 'CharField',
+          'date_granularity': None,
+          'default_date_filter': None, ##TODO dates 
+          'min_date_override': 'todo',
+          'max_date_override': 'todo',
+        },
+        'neighborhood_development_18_045': {
           'app_label': 'neighborhood_development_18',
           'name': 'Monthly Campsite Reports',
           'type': 'Foundation',
           'endpoint':'',
           'visualization': 'ChoroplethMap',
-          'db_table_name': 'campsite_reports_by_month_neigh',
-          'id_column': 'id',
-          'id_column_type': 'IntegerField',
-          'geom_column': 'geom',
-          'geom_column_type': 'GeometryField',
           'multi_geom_class': MultiPolygon, 
-          'primary_attribute_column': 'name',
-          'primary_attribute_column_type': 'CharField',
-          'primary_attribute_column_args': '',
-          'secondary_attribute_column': None, 
-          'secondary_attribute_column_type': None,
           'model_name': models.ReportsByMonth,
-          'date_attribute_column': 'formatted_date', 
+          'date_attribute_column': 'formatted_date', ##TODO dates',
           'date_attribute_column_type': 'CharField',
-          'date_attribute_column_args': None,
-          'date_granularity': None,
-          'default_date_filter': '2018',
-          'min_date_override': '2000',
-          'max_date_override': '2018',
-  },
+          'date_granularity': 'monthyear',
+          'default_date_filter': 'Sept2016', ##TODO dates 
+          'min_date_override': 'todo',
+          'max_date_override': 'todo',
+        },
 }
 
 
-        # '045': {
-        #   'name': 'Camp Reports',
-        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/reportsbymonth/',
-        #   'visualization': 'ChoroplethMap',
-
-# # class ReportsByMonth(models.Model):
-# #     id = models.IntegerField(primary_key=True)
-# #     name = models.CharField(max_length=80)
-# #     formatted_date = models.CharField(max_length=50)
-# #     count = models.IntegerField()
-# #     geom = models.GeometryField()
-
-# #     class Meta:
-# #         managed = False
-# #         db_table = 'campsite_reports_by_month_neigh'
 
 
-
-
-        # '002': {
-        #   'name': 'bike lanes',
-        #   'endpoint': 'http://service.civicpdx.org/neighborhood-development/sandbox/slides/bikelanes/',
-        #   'visualization': 'PathMap',
-        # # }, 
-        # '003': {
-        #   'name': 'parks',
-        #   'endpoint': 'http://service.civicpdx.org/neighborhood-development/sandbox/slides/parks/',
-        #   'visualization': 'PolygonPlotMap',
-        # },
-        # '004': {
-        #   'name': 'multi-use trails',
-        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/multiusetrails/',
-        #   'visualization': 'PathMap',
-        # },    
-        # '005': {
-        #   'name': 'community gardens',
-        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/communitygardens/',
-        #   'visualization': 'SmallPolygonMap',
-        # },    
-        # '008': {
-        #   'name': 'bike greenways',
-        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/bikegreenways/',
-        #   'visualization': 'PathMap',
-        # }, 
-        # '009': {
-        #   'name': 'rail stops',
-        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/railstops/',
-        #   'visualization': 'ScatterPlotMap',
-        # }, 
-        # '010': {
-        #   'name': 'grocery stores',
-        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/retailgrocers/',
-        #   'visualization': 'ScatterPlotMap',
-        # },
-        # '011': {
-        #   'name': 'demolitions',
-        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/demolitions/',
-        #   'visualization': 'ScatterPlotMap',
-        # },
-        # '012': {
-        #   'name': 'camp sweeps',
-        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/campsweeps/',
-        #   'visualization': 'ScatterPlotMap',
-        # },
         # '013': {
         #   'name': 'camp reports',
         #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/campreports/',
@@ -354,7 +309,3 @@ layers = {
         #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/povertyrate/',
         #   'visualization': 'ChoroplethMap',
         # },
-        # '045': {
-        #   'name': 'Camp Reports',
-        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/reportsbymonth/',
-        #   'visualization': 'ChoroplethMap',

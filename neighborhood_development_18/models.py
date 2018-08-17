@@ -4,6 +4,8 @@
 
 from django.contrib.gis.db import models
 
+##TODO: add layer key comments: 
+
 class BikeParking(models.Model):
     objectid = models.IntegerField(primary_key=True)
     geom = models.PointField()
@@ -11,6 +13,7 @@ class BikeParking(models.Model):
     class Meta:
         managed = False
         db_table = 'bike_parking'
+
 
 class Demolition(models.Model):
     objectid = models.IntegerField(primary_key=True)
@@ -66,42 +69,42 @@ class BikeGreenway(models.Model):
         managed = False
         db_table = 'bike_greenways'
 
-# class RailStop(models.Model):
-#     id = models.IntegerField(primary_key=True)
-#     geom = models.PointField()
+class RailStop(models.Model):
+    id = models.IntegerField(primary_key=True)
+    geom = models.PointField()
 
-#     class Meta:
-#         managed = False
-#         db_table = 'rail_stops'
-
-
-# class CampSweep(models.Model):
-#     id = models.IntegerField(primary_key=True)
-#     formatted_date = models.CharField(max_length=50)
-#     geom = models.PointField()
-
-#     class Meta:
-#         managed = False
-#         db_table = 'camp_sweeps_view'
+    class Meta:
+        managed = False
+        db_table = 'rail_stops'
 
 
-# class CampReport(models.Model):
-#     id = models.IntegerField(db_column='ItemID', primary_key=True)
-#     date = models.DateTimeField()
-#     geom = models.PointField()
+class CampSweep(models.Model):
+    id = models.IntegerField(primary_key=True)
+    formatted_date = models.CharField(max_length=50)
+    geom = models.PointField()
 
-#     class Meta:
-#         managed = False
-#         db_table = 'campsite_reports'
+    class Meta:
+        managed = False
+        db_table = 'camp_sweeps_view'
 
-# class RetailGrocer(models.Model):
-#     id = models.IntegerField(primary_key=True)
-#     company_na = models.CharField(max_length=50)
-#     geom = models.GeometryField()
 
-#     class Meta:
-#         managed = False
-#         db_table = 'retail_grocers'
+class CampReport(models.Model):
+    id = models.IntegerField(db_column='ItemID', primary_key=True)
+    date = models.DateTimeField()
+    geom = models.PointField()
+
+    class Meta:
+        managed = False
+        db_table = 'campsite_reports'
+
+class RetailGrocer(models.Model):
+    id = models.IntegerField(primary_key=True)
+    company_na = models.CharField('name', help_text='primary_attribute', max_length=50)
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'retail_grocers'
 
 # class BusStop(models.Model):
 
