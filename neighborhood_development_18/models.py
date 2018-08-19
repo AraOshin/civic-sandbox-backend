@@ -6,6 +6,7 @@ from django.contrib.gis.db import models
 
 ##TODO: add layer key comments: 
 
+
 class BikeParking(models.Model):
     objectid = models.IntegerField(primary_key=True)
     geom = models.PointField()
@@ -13,6 +14,7 @@ class BikeParking(models.Model):
     class Meta:
         managed = False
         db_table = 'bike_parking'
+        app_label = 'neighborhood_development_18'
 
 
 class Demolition(models.Model):
@@ -24,7 +26,7 @@ class Demolition(models.Model):
     class Meta:
         managed = False
         db_table = 'demolitions'
-
+        app_label = 'neighborhood_development_18'   
 
 class BikeLane(models.Model):
     objectid = models.IntegerField(primary_key=True)
@@ -33,6 +35,7 @@ class BikeLane(models.Model):
     class Meta:
         managed = False
         db_table = 'bike_lanes'
+        app_label = 'neighborhood_development_18'
 
 class Park(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -43,6 +46,7 @@ class Park(models.Model):
     class Meta:
         managed = False
         db_table = 'parks'
+        app_label = 'neighborhood_development_18'
 
 class MultiuseTrail(models.Model):
     ogc_fid = models.IntegerField(primary_key=True)
@@ -51,6 +55,7 @@ class MultiuseTrail(models.Model):
     class Meta:
         managed = False
         db_table = 'active_multiuse_trail'
+        app_label = 'neighborhood_development_18'
 
 class CommunityGarden(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -60,6 +65,7 @@ class CommunityGarden(models.Model):
     class Meta:
         managed = False
         db_table = 'community_gardens'
+        app_label = 'neighborhood_development_18'
 
 class BikeGreenway(models.Model):
     objectid = models.IntegerField(primary_key=True)
@@ -68,6 +74,7 @@ class BikeGreenway(models.Model):
     class Meta:
         managed = False
         db_table = 'bike_greenways'
+        app_label = 'neighborhood_development_18'
 
 class RailStop(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -76,6 +83,7 @@ class RailStop(models.Model):
     class Meta:
         managed = False
         db_table = 'rail_stops'
+        app_label = 'neighborhood_development_18'
 
 
 class CampSweep(models.Model):
@@ -86,6 +94,7 @@ class CampSweep(models.Model):
     class Meta:
         managed = False
         db_table = 'camp_sweeps_view'
+        app_label = 'neighborhood_development_18'
 
 
 class CampReport(models.Model):
@@ -96,6 +105,7 @@ class CampReport(models.Model):
     class Meta:
         managed = False
         db_table = 'campsite_reports'
+        app_label = 'neighborhood_development_18'
 
 class RetailGrocer(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -105,6 +115,7 @@ class RetailGrocer(models.Model):
     class Meta:
         managed = False
         db_table = 'retail_grocers'
+        app_label = 'neighborhood_development_18'
 
 # class BusStop(models.Model):
 
@@ -172,6 +183,7 @@ class ReportsByMonth(models.Model):
     class Meta:
         managed = False
         db_table = 'campsite_reports_by_month_neigh'
+        app_label = 'neighborhood_development_18'
 
 
 # class BikeCount(models.Model):

@@ -174,6 +174,21 @@ layers = {
           'min_date_override': 'todo',
           'max_date_override': 'todo',
         },
+        # 'neighborhood_development_18_014': {
+        #   'app_label': 'neighborhood_development_18',
+        #   'name': 'Camp Reports',
+        #   'type': 'Slide',
+        #   'endpoint':'',
+        #   'visualization': 'ScatterPlotMap',
+        #   'multi_geom_class': MultiPoint, 
+        #   'model_name': models.CampReport,
+        #   'date_attribute_column': None, ##TODO dates 
+        #   'date_attribute_column_type': 'CharField',
+        #   'date_granularity': None,
+        #   'default_date_filter': None, ##TODO dates 
+        #   'min_date_override': 'todo',
+        #   'max_date_override': 'todo',
+        # },
         'neighborhood_development_18_045': {
           'app_label': 'neighborhood_development_18',
           'name': 'Monthly Campsite Reports',
@@ -194,10 +209,6 @@ layers = {
 
 
 
-        # '013': {
-        #   'name': 'camp reports',
-        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/campreports/',
-        #   'visualization': 'ScatterPlotMap',
         # },
         # '014': {
         #   'name': 'bus stops',

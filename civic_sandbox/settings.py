@@ -105,33 +105,58 @@ WSGI_APPLICATION = 'civic_sandbox.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+# DATABASE_ROUTERS = ['manager.router.DatabaseAppsRouter']
+# DATABASE_APPS_MAPPING = {'neighborhood_development_18': 'neighborhood_development_18_db', 
+#                          'transportation_systems_18':'transportation_systems_18_db'}
+
+DATABASE_ROUTERS = ['civic_sandbox.routers.CivicSandboxRouter']
+
 DATABASES = {
-    'default': {
+    'default': {},
+    'neighborhood-development': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-        'NAME': os.environ.get('POSTGRES_NAME'),
-        'USER': os.environ.get('POSTGRES_USER'),
-        'HOST': os.environ.get('POSTGRES_HOST'),
+        'PASSWORD': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_PASSWORD'),
+        'NAME': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_NAME'),
+        'USER': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_USER'),
+        'HOST': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_HOST'),
         'PORT': os.environ.get('POSTGRES_PORT')
-    }
+    },
+    # 'transportation_systems_18_db': {
+    #     'ENGINE': 'django.contrib.gis.db.backends.postgis',
+    #     'PASSWORD': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PASSWORD'),
+    #     'NAME': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_NAME'),
+    #     'USER': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_USER'),
+    #     'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
+    #     'PORT': os.environ.get('POSTGRES_PORT')
+    # }
 }
 
 if DEBUG == False:
 
     DATABASES = {
-        'default': {
+        'default': {},
+        'neighborhood-development': {
             'ENGINE': 'django.contrib.gis.db.backends.postgis',
-            'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-            'NAME': os.environ.get('POSTGRES_NAME'),
-            'USER': os.environ.get('POSTGRES_USER'),
-            'HOST': os.environ.get('POSTGRES_HOST'),
+            'PASSWORD': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_PASSWORD'),
+            'NAME': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_NAME'),
+            'USER': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_USER'),
+            'HOST': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_HOST'),
             'PORT': os.environ.get('POSTGRES_PORT'),
             'CONN_MAX_AGE': 0,
             'OPTIONS': {
                 'MAX_CONNS': 20
-            }
+            }, 
+        # 'transportation_systems_18_db': {
+        #     'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        #     'PASSWORD': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PASSWORD'),
+        #     'NAME': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_NAME'),
+        #     'USER': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_USER'),
+        #     'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
+        #     'PORT': os.environ.get('POSTGRES_PORT')
+        #     }, 
         }
     }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
