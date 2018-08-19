@@ -121,21 +121,21 @@ DATABASES = {
         'HOST': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_HOST'),
         'PORT': os.environ.get('POSTGRES_PORT')
     },
-    # 'transportation_systems_18_db': {
-    #     'ENGINE': 'django.contrib.gis.db.backends.postgis',
-    #     'PASSWORD': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PASSWORD'),
-    #     'NAME': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_NAME'),
-    #     'USER': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_USER'),
-    #     'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
-    #     'PORT': os.environ.get('POSTGRES_PORT')
-    # }
+    'transportation-systems-main': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'PASSWORD': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PASSWORD'),
+        'NAME': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_NAME'),
+        'USER': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_USER'),
+        'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
+        'PORT': os.environ.get('POSTGRES_PORT')
+    }
 }
 
 if DEBUG == False:
 
     DATABASES = {
         'default': {},
-        'neighborhood-development': {
+        'neighborhood-development': { ##use db name
             'ENGINE': 'django.contrib.gis.db.backends.postgis',
             'PASSWORD': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_PASSWORD'),
             'NAME': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_NAME'),
@@ -146,14 +146,14 @@ if DEBUG == False:
             'OPTIONS': {
                 'MAX_CONNS': 20
             }, 
-        # 'transportation_systems_18_db': {
-        #     'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        #     'PASSWORD': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PASSWORD'),
-        #     'NAME': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_NAME'),
-        #     'USER': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_USER'),
-        #     'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
-        #     'PORT': os.environ.get('POSTGRES_PORT')
-        #     }, 
+        'transportation-systems-main': { ##use db name 
+            'ENGINE': 'django.contrib.gis.db.backends.postgis',
+            'PASSWORD': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PASSWORD'),
+            'NAME': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_NAME'),
+            'USER': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_USER'),
+            'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
+            'PORT': os.environ.get('POSTGRES_PORT')
+            }, 
         }
     }
 
