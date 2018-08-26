@@ -7,13 +7,30 @@ class SafetyHotlineTickets(models.Model):
     id = models.IntegerField(primary_key=True)
     date_created = models.DateField()
     description = models.TextField(blank=True, null=True)
-    geom = models.PointField(db_column=geom_4326)
+    geom = models.PointField(db_column = 'geom_4326')
 
     class Meta:
         managed = False
         app_label = 'transportation_systems_18'
         db_table = 'safety_hotline_tickets'
         in_db = 'safety_hotline_tickets'
+
+
+class Sensor(models.Model):
+    id = models.IntegerField(primary_key=True)
+    geom_4326 = models.PointField()
+
+
+    class Meta:
+        managed = False
+        app_label = 'transportation_systems_18'
+        db_table = 'sensor_locations'
+        in_db = 'pudl'
+
+
+
+
+
 
 # class Crash(models.Model):
 #     crash_id = models.IntegerField(primary_key=True)
@@ -47,13 +64,3 @@ class SafetyHotlineTickets(models.Model):
 #         managed = False
 #         db_table = 'route_change'
 #         in_db = 'passenger_census'
-
-# class Sensor(models.Model):
-#     id = models.IntegerField(primary_key=True)
-#     geom_4326 = models.PointField()
-
-
-#     class Meta:
-#         managed = False
-#         db_table = 'sensor_locations'
-#         in_db = 'pudl'

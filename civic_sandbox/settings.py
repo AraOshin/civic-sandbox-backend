@@ -47,7 +47,9 @@ if DEBUG == True:
         'rest_framework_swagger',
         'rest_framework_gis',
         'neighborhood_development_18',
+        'transportation_systems_18',
         'registry',
+        'disaster_resilience_18',
         ]
 
 else:
@@ -66,7 +68,9 @@ else:
         'rest_framework_swagger',
         'rest_framework_gis',
         'neighborhood_development_18',
+        'transportation_systems_18',
         'registry',
+        'disaster_resilience_18',
         ]
 
 MIDDLEWARE = [
@@ -102,13 +106,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'civic_sandbox.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
-# DATABASE_ROUTERS = ['manager.router.DatabaseAppsRouter']
-# DATABASE_APPS_MAPPING = {'neighborhood_development_18': 'neighborhood_development_18_db', 
-#                          'transportation_systems_18':'transportation_systems_18_db'}
-
 DATABASE_ROUTERS = ['civic_sandbox.routers.CivicSandboxRouter']
 
 DATABASES = {
@@ -128,7 +125,15 @@ DATABASES = {
         'USER': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_USER'),
         'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
         'PORT': os.environ.get('POSTGRES_PORT')
-    }
+    },
+        'disaster-resilience-disaster': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'PASSWORD': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_PASSWORD'),
+        'NAME': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_NAME'),
+        'USER': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_USER'),
+        'HOST': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_HOST'),
+        'PORT': os.environ.get('POSTGRES_PORT')
+    },
 }
 
 if DEBUG == False:
@@ -154,6 +159,14 @@ if DEBUG == False:
             'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
             'PORT': os.environ.get('POSTGRES_PORT')
             }, 
+        'disaster-resilience-disaster': {
+            'ENGINE': 'django.contrib.gis.db.backends.postgis',
+            'PASSWORD': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_PASSWORD'),
+            'NAME': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_NAME'),
+            'USER': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_USER'),
+            'HOST': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_HOST'),
+            'PORT': os.environ.get('POSTGRES_PORT')
+            },
         }
     }
 
