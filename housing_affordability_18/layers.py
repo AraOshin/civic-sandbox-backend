@@ -7,34 +7,18 @@ layers = {
           'name': 'Building Permits',
           'type': 'Slide',
           'endpoint':'',
-          'visualization': 'ScatterPlotMap',
+          'visualization': 'ScreenGridMap',
           'multi_geom_class': MultiPoint, 
           'model_name': models.Permit,
-          'date_attribute_column': None, ##TODO 
-          'date_granularity': None,
-          'default_date_filter': None,
-          'min_date_override': None,
-          'max_date_override': None,
+          'primary_attribute_column': 'new_class', # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': 'New Structure Class',
+          'secondary_attribute_column': 'new_type', # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': 'New Structure Type',
+          'date_attribute_column': 'issue_date',  
+          'date_granularity': 'year',
+          'default_date_filter': '2017',
+          'min_date': '1994',
+          'max_date': '2018',
         },
 }
 
-
-# permits_meta = {
-#   'attributes': {
-#     'primary': {
-#       'field': 'new_class',
-#       'name': 'New Structure Class',
-#     },
-#     'secondary': {
-#       'field': 'new_type',
-#       'name': 'New Structure Type',
-#     },
-#   },
-#   'dates': {
-#   'date_attribute': 'issue_date',
-#   'date_granularity': 'year',
-#   'default_date_filter': '2017',
-#   'min_date': '1994',
-#   'max_date': '2018',
-#     },
-#   }

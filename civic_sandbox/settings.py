@@ -127,9 +127,55 @@ DATABASES = {
         'NAME': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_NAME'),
         'USER': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_USER'),
         'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
-        'PORT': os.environ.get('POSTGRES_PORT')
+        'PORT': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PORT')
     },
-        'disaster-resilience-disaster': {
+    'odot_crash_data': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'PASSWORD': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PASSWORD'),
+        'OPTIONS': {
+                'options': '-c search_path=django,odot_crash_data'
+            },
+        'NAME': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_NAME'),
+        'USER': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_USER'),
+        'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
+        'PORT': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PORT')
+    },
+
+    'passenger_census': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'PASSWORD': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PASSWORD'),
+        'OPTIONS': {
+                'options': '-c search_path=django,passenger_census'
+            },
+        'NAME': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_NAME'),
+        'USER': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_USER'),
+        'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
+        'PORT': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PORT')
+    },
+
+    'safety_hotline_tickets': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'PASSWORD': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PASSWORD'),
+        'OPTIONS': {
+                'options': '-c search_path=django,safety_hotline_tickets'
+            },
+        'NAME': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_NAME'),
+        'USER': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_USER'),
+        'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
+        'PORT': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PORT')
+    },
+    'pudl': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'PASSWORD': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PASSWORD'),
+        'OPTIONS': {
+                'options': '-c search_path=django,pudl'
+            },
+        'NAME': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_NAME'),
+        'USER': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_USER'),
+        'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
+        'PORT': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PORT')
+    },
+    'disaster-resilience-disaster': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'PASSWORD': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_PASSWORD'),
         'NAME': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_NAME'),
@@ -150,44 +196,86 @@ DATABASES = {
 if DEBUG == False:
 
     DATABASES = {
-        'default': {},
-        'neighborhood-development': { ##use db name
-            'ENGINE': 'django.contrib.gis.db.backends.postgis',
-            'PASSWORD': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_PASSWORD'),
-            'NAME': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_NAME'),
-            'USER': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_USER'),
-            'HOST': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_HOST'),
-            'PORT': os.environ.get('POSTGRES_PORT'),
-            'CONN_MAX_AGE': 0,
-            'OPTIONS': {
-                'MAX_CONNS': 20
-                }, 
+    'default': {},
+    'neighborhood-development': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'PASSWORD': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_PASSWORD'),
+        'NAME': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_NAME'),
+        'USER': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_USER'),
+        'HOST': os.environ.get('NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_HOST'),
+        'PORT': os.environ.get('POSTGRES_PORT')
+    },
+    'transportation-systems-main': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'PASSWORD': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PASSWORD'),
+        'NAME': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_NAME'),
+        'USER': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_USER'),
+        'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
+        'PORT': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PORT')
+    },
+    'odot_crash_data': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'PASSWORD': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PASSWORD'),
+        'OPTIONS': {
+                'options': '-c search_path=django,odot_crash_data'
             },
-        'transportation-systems-main': { ##use db name 
-            'ENGINE': 'django.contrib.gis.db.backends.postgis',
-            'PASSWORD': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PASSWORD'),
-            'NAME': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_NAME'),
-            'USER': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_USER'),
-            'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
-            'PORT': os.environ.get('POSTGRES_PORT')
-            }, 
+        'NAME': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_NAME'),
+        'USER': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_USER'),
+        'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
+        'PORT': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PORT')
+    },
+
+    'passenger_census': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'PASSWORD': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PASSWORD'),
+        'OPTIONS': {
+                'options': '-c search_path=django,passenger_census'
+            },
+        'NAME': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_NAME'),
+        'USER': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_USER'),
+        'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
+        'PORT': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PORT')
+    },
+
+    'safety_hotline_tickets': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'PASSWORD': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PASSWORD'),
+        'OPTIONS': {
+                'options': '-c search_path=django,safety_hotline_tickets'
+            },
+        'NAME': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_NAME'),
+        'USER': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_USER'),
+        'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
+        'PORT': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PORT')
+    },
+    'pudl': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'PASSWORD': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PASSWORD'),
+        'OPTIONS': {
+                'options': '-c search_path=django,pudl'
+            },
+        'NAME': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_NAME'),
+        'USER': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_USER'),
+        'HOST': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_HOST'),
+        'PORT': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PORT')
+    },
         'disaster-resilience-disaster': {
-            'ENGINE': 'django.contrib.gis.db.backends.postgis',
-            'PASSWORD': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_PASSWORD'),
-            'NAME': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_NAME'),
-            'USER': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_USER'),
-            'HOST': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_HOST'),
-            'PORT': os.environ.get('POSTGRES_PORT')
-            },
-        'housing-affordability': {
-            'ENGINE': 'django.contrib.gis.db.backends.postgis',
-            'PASSWORD': os.environ.get('HOUSING_AFFORDABILITY_18_POSTGRES_PASSWORD'),
-            'NAME': os.environ.get('HOUSING_AFFORDABILITY_18_POSTGRES_NAME'),
-            'USER': os.environ.get('HOUSING_AFFORDABILITY_18_POSTGRES_USER'),
-            'HOST': os.environ.get('HOUSING_AFFORDABILITY_18_POSTGRES_HOST'),
-            'PORT': os.environ.get('POSTGRES_PORT')
-        },
-    }
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'PASSWORD': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_PASSWORD'),
+        'NAME': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_NAME'),
+        'USER': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_USER'),
+        'HOST': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_HOST'),
+        'PORT': os.environ.get('POSTGRES_PORT')
+    },
+    'housing-affordability': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'PASSWORD': os.environ.get('HOUSING_AFFORDABILITY_18_POSTGRES_PASSWORD'),
+        'NAME': os.environ.get('HOUSING_AFFORDABILITY_18_POSTGRES_NAME'),
+        'USER': os.environ.get('HOUSING_AFFORDABILITY_18_POSTGRES_USER'),
+        'HOST': os.environ.get('HOUSING_AFFORDABILITY_18_POSTGRES_HOST'),
+        'PORT': os.environ.get('POSTGRES_PORT')
+    },
+}
 
 
 # Password validation

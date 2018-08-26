@@ -8,3 +8,16 @@ safety_hotline_layer = SandboxMaker(
 sensors_layer = SandboxMaker(
     layer_key = 'transportation_systems_18_002',
     )
+
+
+crashes_layer = SandboxMaker(
+    layer_key = 'transportation_systems_18_003',
+    )
+
+route_change_layer = SandboxMaker(
+    layer_key = 'transportation_systems_18_004',
+    )
+
+block_change_layer = SandboxMaker(
+    layer_key = 'transportation_systems_18_005',
+    )

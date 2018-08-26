@@ -50,6 +50,7 @@ class Park(models.Model):
 
 class MultiuseTrail(models.Model):
     ogc_fid = models.IntegerField(primary_key=True)
+    sitename = models.CharField(max_length=50)
     geom = models.LineStringField()
 
     class Meta:
@@ -109,7 +110,7 @@ class CampReport(models.Model):
 
 class RetailGrocer(models.Model):
     id = models.IntegerField(primary_key=True)
-    company_na = models.CharField('name', help_text='primary_attribute', max_length=50)
+    company_na = models.CharField(max_length=50)
     geom = models.GeometryField()
 
     class Meta:
@@ -117,14 +118,14 @@ class RetailGrocer(models.Model):
         db_table = 'retail_grocers'
         app_label = 'neighborhood_development_18'
 
-# class BusStop(models.Model):
+class BusStop(models.Model):
 
-#     keyitem = models.CharField(primary_key=True, max_length=50)
-#     geom = models.PointField()
+    keyitem = models.CharField(primary_key=True, max_length=50)
+    geom = models.PointField()
 
-#     class Meta:
-#         managed = False
-#         db_table = 'bus_stops'
+    class Meta:
+        managed = False
+        db_table = 'bus_stops'
 
 # # class IMSNeighborhood(models.Model):
 # #     id = models.IntegerField(primary_key=True)
@@ -186,23 +187,23 @@ class ReportsByMonth(models.Model):
         app_label = 'neighborhood_development_18'
 
 
-# class BikeCount(models.Model):
-#    id = models.IntegerField(primary_key=True)
-#    count_time = models.CharField(max_length=5)
-#    year_2017 = models.IntegerField(db_column="2017", blank=True, null=True)
-#    geom = models.PointField(blank=True, null=True)
+class BikeCount(models.Model):
+   id = models.IntegerField(primary_key=True)
+   count_time = models.CharField(max_length=5)
+   year_2017 = models.IntegerField(db_column="2017", blank=True, null=True)
+   geom = models.PointField(blank=True, null=True)
 
-#    class Meta:
-#        managed = False
-#        db_table = "bike_counts"
-
-
-# class BikeDailyEstimate(models.Model):
-#    id = models.IntegerField(primary_key=True)
-#    year_2016 = models.IntegerField(db_column="2016", blank=True, null=True)
-#    geom = models.PointField(blank=True, null=True)
+   class Meta:
+       managed = False
+       db_table = "bike_counts"
 
 
-#    class Meta:
-#        managed = False
-#        db_table = "bike_daily_estimates"
+class BikeDailyEstimate(models.Model):
+   id = models.IntegerField(primary_key=True)
+   year_2016 = models.IntegerField(db_column="2016", blank=True, null=True)
+   geom = models.PointField(blank=True, null=True)
+
+
+   class Meta:
+       managed = False
+       db_table = "bike_daily_estimates"

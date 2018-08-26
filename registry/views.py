@@ -3,6 +3,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from civic_sandbox.all_layers import layers
+from .packages import packages
 
 
 
@@ -15,13 +16,16 @@ def sandbox_registry(request, format=None):
     registry_keys = [
         'name',
         'type', 
-        'visualization', 
         'endpoint', 
-        'date_attribute', 
+        'visualization', 
         'primary_attribute_column',
-        'date_attribute',
+        'secondary_attribute_column'
+        'date_attribute_column',
         'date_granularity',
-        'default_date_filter',]
+        'default_date_filter',
+        'min_date',
+        'min_date',
+        ]
 
     new_layers = {}
     new_layer_dict = {}
@@ -36,6 +40,7 @@ def sandbox_registry(request, format=None):
                 
 
     response= { 
+        'packages': packages,
         'layers': new_layers
     }
     return Response(response)

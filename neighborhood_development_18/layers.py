@@ -6,26 +6,19 @@ layers = {
             'app_label': 'neighborhood_development_18',
             'name': 'Bike Parking',
             'type': 'Slide',
-            'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/reportsbymonth/',
-            'visualization': 'ChoroplethMap',
-            'db_table_name': 'bike_parking',
-            'id_column': 'objectid',
-            'id_column_type': 'IntegerField',
-            'geom_column': 'geom',
-            'geom_column_type': 'PointField',
+            'endpoint':'',
+            'visualization': 'ScatterPlotMap',
             'multi_geom_class': MultiPoint, 
-            'primary_attribute_column': None,
-            'primary_attribute_column_type': None,
-            'primary_attribute_column_args': None,
-            'secondary_attribute_column': None, 
-            'secondary_attribute_column_type': None,
             'model_name': models.BikeParking,
+            'primary_attribute_column': None, # When updating primary_attribute_column, update in model as well
+            'primary_attribute_label': None,
+            'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
+            'secondary_attribute_label': None,
             'date_attribute_column': None, 
-            'date_attribute_column_type': None,
             'date_granularity': None,
             'default_date_filter': '2017',
-            'min_date_override': None, #TODO
-            'max_date_override': None, #TODO
+            'min_date': None,
+            'max_date': None, 
         },
         'neighborhood_development_18_002': {
           'app_label': 'neighborhood_development_18',
@@ -33,35 +26,32 @@ layers = {
           'type': 'Slide',
           'endpoint':'',
           'visualization': 'PathMap',
-          'db_table_name': 'bike_lanes',
-          'id_column': 'objectid',
-          'id_column_type': 'IntegerField',
-          'geom_column': 'geom',
-          'geom_column_type': 'LineStringField',
+          'primary_attribute_column': None, # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': None,
+          'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': None,
           'multi_geom_class': MultiLineString, 
-          'primary_attribute_column': None,
-          'primary_attribute_column_type': None,
-          'primary_attribute_column_args': None,
-          'secondary_attribute_column': None, 
-          'secondary_attribute_column_type': None,
           'model_name': models.BikeLane,
           'date_attribute_column': None, 
-          'date_attribute_column_type': None,
           'date_granularity': None,
-          'default_date_filter': None,
-          'min_date_override': None,
-          'max_date_override': None,
+          'default_date_filter': '2018',
+          'min_date': None,
+          'max_date': None,
         },
         'neighborhood_development_18_003': {
           'name': 'Parks',
           'type': 'Slide',
           'endpoint':'',
-          'visualization': 'PolygonPlotMap',
+          'visualization': 'PolygonPlotMap', 
           'multi_geom_class': MultiPolygon, 
           'model_name': models.Park,
+          'primary_attribute_column': 'name', # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': 'Park',
+          'secondary_attribute_column': 'acres', # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': 'Park Acreage',
           'date_attribute_column': None, 
           'date_granularity': None,
-          'default_date_filter': None,
+          'default_date_filter': '2018',
           'min_date': None,
           'max_date': None,
         },
@@ -72,9 +62,13 @@ layers = {
           'visualization': 'PathMap',
           'multi_geom_class': MultiLineString, 
           'model_name': models.MultiuseTrail,
+          'primary_attribute_column': None, # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': None,
+          'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': None,
           'date_attribute_column': None, 
           'date_granularity': None,
-          'default_date_filter': None,
+          'default_date_filter': '2018',
           'min_date': None,
           'max_date': None,
         },
@@ -85,66 +79,85 @@ layers = {
           'visualization': 'SmallPolygonMap',
           'multi_geom_class': MultiPolygon, 
           'model_name': models.CommunityGarden,
+          'primary_attribute_column': 'sitename', # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': 'Name',
+          'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': None,
           'date_attribute_column': None, 
           'date_granularity': None,
-          'default_date_filter': None,
+          'default_date_filter': '2017',
           'min_date': None,
           'max_date': None,
         },
-        'neighborhood_development_18_008': {
+        'neighborhood_development_18_006': {
           'name': 'Bike Greenways',
           'type': 'Slide',
           'endpoint':'',
           'visualization': 'PathMap',
           'multi_geom_class': MultiLineString, 
           'model_name': models.BikeGreenway,
+          'primary_attribute_column': None, # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': None,
+          'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': None,
           'date_attribute_column': None, 
           'date_granularity': None,
-          'default_date_filter': None,
+          'default_date_filter': '2018',
           'min_date': None,
           'max_date': None,
         },
-        'neighborhood_development_18_009': {
+        'neighborhood_development_18_007': {
           'name': 'Rail Stops',
           'type': 'Slide',
           'endpoint':'',
           'visualization': 'ScatterPlotMap',
           'multi_geom_class': MultiPoint, 
           'model_name': models.RailStop,
+          'primary_attribute_column': None, # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': None,
+          'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': None,
           'date_attribute_column': None, 
           'date_granularity': None,
-          'default_date_filter': None,
+          'default_date_filter': '2016',
           'min_date': None,
           'max_date': None,
         },
-        'neighborhood_development_18_010': {
+        'neighborhood_development_18_008': {
           'name': 'Grocery Stores',
           'type': 'Slide',
           'endpoint':'',
           'visualization': 'ScatterPlotMap',
           'multi_geom_class': MultiPoint, 
           'model_name': models.RailStop,
+          'primary_attribute_column': 'company_na', # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': 'Name',
+          'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': None,
           'date_attribute_column': None, 
           'date_granularity': None,
-          'default_date_filter': None,
+          'default_date_filter': '2018',
           'min_date': None,
           'max_date': None,
         },
-        'neighborhood_development_18_011': {
-          'name': 'demolitions',
+        'neighborhood_development_18_009': {
+          'name': 'Demolitions',
           'type': 'Slide',
-          'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/demolitions/',
+          'endpoint':'',
           'visualization': 'ScatterPlotMap',
           'multi_geom_class': MultiPoint, 
           'model_name': models.Demolition,
+          'primary_attribute_column': None, # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': None,
+          'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': None,
           'date_attribute_column': 'year', 
-          'date_attribute_column_type': 'CharField',
           'date_granularity': 'year',
           'default_date_filter': '2018',
-          'min_date_override': '2000',
-          'max_date_override': '2018',
+          'min_date': '2000',
+          'max_date': '2018',
         },
-        'neighborhood_development_18_012': {
+        'neighborhood_development_18_010': {
           'app_label': 'neighborhood_development_18',
           'name': 'Camp Sweeps',
           'type': 'Slide',
@@ -152,14 +165,17 @@ layers = {
           'visualization': 'ScatterPlotMap',
           'multi_geom_class': MultiPoint, 
           'model_name': models.CampSweep,
-          'date_attribute_column': None, ##TODO dates 
-          'date_attribute_column_type': 'CharField',
-          'date_granularity': None,
-          'default_date_filter': None, ##TODO dates 
-          'min_date_override': 'todo',
-          'max_date_override': 'todo',
+          'primary_attribute_column': None, # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': None,
+          'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': None,
+          'date_attribute_column': 'formatted_date',
+          'date_granularity': 'month',
+          'default_date_filter': 'Apr2018',
+          'min_date': 'Oct2016',
+          'max_date': 'May2018',
         },
-        'neighborhood_development_18_013': {
+        'neighborhood_development_18_011': {
           'app_label': 'neighborhood_development_18',
           'name': 'Camp Reports',
           'type': 'Slide',
@@ -167,28 +183,34 @@ layers = {
           'visualization': 'ScatterPlotMap',
           'multi_geom_class': MultiPoint, 
           'model_name': models.CampReport,
-          'date_attribute_column': None, ##TODO dates 
-          'date_attribute_column_type': 'CharField',
-          'date_granularity': None,
-          'default_date_filter': None, ##TODO dates 
-          'min_date_override': 'todo',
-          'max_date_override': 'todo',
+          'primary_attribute_column': None, # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': None,
+          'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': None,
+          'date_attribute_column': 'date',
+          'date_granularity': 'year',
+          'default_date_filter': '2018',
+          'min_date': '2015',
+          'max_date': '2018',
         },
-        # 'neighborhood_development_18_014': {
-        #   'app_label': 'neighborhood_development_18',
-        #   'name': 'Camp Reports',
-        #   'type': 'Slide',
-        #   'endpoint':'',
-        #   'visualization': 'ScatterPlotMap',
-        #   'multi_geom_class': MultiPoint, 
-        #   'model_name': models.CampReport,
-        #   'date_attribute_column': None, ##TODO dates 
-        #   'date_attribute_column_type': 'CharField',
-        #   'date_granularity': None,
-        #   'default_date_filter': None, ##TODO dates 
-        #   'min_date_override': 'todo',
-        #   'max_date_override': 'todo',
-        # },
+        'neighborhood_development_18_012': {
+          'app_label': 'neighborhood_development_18',
+          'name': 'Bus Stops',
+          'type': 'Slide',
+          'endpoint':'',
+          'visualization': 'ScatterPlotMap',
+          'multi_geom_class': MultiPoint, 
+          'model_name': models.BusStop,
+          'primary_attribute_column': None, # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': None,
+          'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': None,
+          'date_attribute_column': None,
+          'date_granularity': None,
+          'default_date_filter': '2018',
+          'min_date': None,
+          'max_date': None,
+        },
         'neighborhood_development_18_045': {
           'app_label': 'neighborhood_development_18',
           'name': 'Monthly Campsite Reports',
@@ -197,34 +219,58 @@ layers = {
           'visualization': 'ChoroplethMap',
           'multi_geom_class': MultiPolygon, 
           'model_name': models.ReportsByMonth,
-          'date_attribute_column': 'formatted_date', ##TODO dates',
-          'date_attribute_column_type': 'CharField',
-          'date_granularity': 'monthyear',
-          'default_date_filter': 'Sept2016', ##TODO dates 
-          'min_date_override': 'todo',
-          'max_date_override': 'todo',
+          'primary_attribute_column': 'count', # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': 'Count',
+          'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': None,
+          'date_attribute_column': 'formatted_date',
+          'date_granularity': 'month',
+          'default_date_filter': 'Apr2018', 
+          'min_date': 'Dec2015',
+          'max_date': 'Apr2018',
+        },
+        'neighborhood_development_18_013': {
+          'app_label': 'neighborhood_development_18',
+          'name': 'Bike Estimates',
+          'type': 'Slide',
+          'endpoint':'',
+          'visualization': 'ScatterPlotMap',
+          'multi_geom_class': MultiPoint, 
+          'model_name': models.BikeDailyEstimate,
+          'primary_attribute_column': 'year_2016', # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': 'Daily Estimates of Bike Traffic',
+          'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': None,
+          'date_attribute_column': None,
+          'date_granularity': None,
+          'default_date_filter': '2016',
+          'min_date': None,
+          'max_date': None,
+        },
+        'neighborhood_development_18_014': {
+          'app_label': 'neighborhood_development_18',
+          'name': 'Bike Counts',
+          'type': 'Slide',
+          'endpoint':'',
+          'visualization': 'ScatterPlotMap',
+          'multi_geom_class': MultiPolygon, 
+          'model_name': models.BikeCount,
+          'primary_attribute_column': 'year_2017', # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': 'Actual Bike Count',
+          'secondary_attribute_column': 'count_time', # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': 'Count Time',
+          'date_attribute_column': None, 
+          'date_granularity': None,
+          'default_date_filter': '2017',
+          'min_date': None,
+          'max_date': None,
         },
 }
 
 
 
 
-        # },
-        # '014': {
-        #   'name': 'bus stops',
-        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/busstops/',
-        #   'visualization': 'ScatterPlotMap',
-        # },
-        # '035': {
-        #   'name': 'Bike Counts',
-        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/bikecounts/',
-        #   'visualization': 'ScatterPlotMap',
-        # },
-        # '036': {
-        #   'name': 'Bike Estimates',
-        #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/slides/bikeestimates/',
-        #   'visualization': 'ScatterPlotMap',
-        # },
+      
         # '007': {
         #   'name': 'Total Population',
         #   'endpoint':'http://service.civicpdx.org/neighborhood-development/sandbox/foundations/population/',
