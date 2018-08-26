@@ -50,6 +50,8 @@ if DEBUG == True:
         'transportation_systems_18',
         'registry',
         'disaster_resilience_18',
+        'housing_affordability_18',
+
         ]
 
 else:
@@ -71,6 +73,7 @@ else:
         'transportation_systems_18',
         'registry',
         'disaster_resilience_18',
+        'housing_affordability_18',
         ]
 
 MIDDLEWARE = [
@@ -134,6 +137,14 @@ DATABASES = {
         'HOST': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_HOST'),
         'PORT': os.environ.get('POSTGRES_PORT')
     },
+    'housing-affordability': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'PASSWORD': os.environ.get('HOUSING_AFFORDABILITY_18_POSTGRES_PASSWORD'),
+        'NAME': os.environ.get('HOUSING_AFFORDABILITY_18_POSTGRES_NAME'),
+        'USER': os.environ.get('HOUSING_AFFORDABILITY_18_POSTGRES_USER'),
+        'HOST': os.environ.get('HOUSING_AFFORDABILITY_18_POSTGRES_HOST'),
+        'PORT': os.environ.get('POSTGRES_PORT')
+    },
 }
 
 if DEBUG == False:
@@ -150,7 +161,8 @@ if DEBUG == False:
             'CONN_MAX_AGE': 0,
             'OPTIONS': {
                 'MAX_CONNS': 20
-            }, 
+                }, 
+            },
         'transportation-systems-main': { ##use db name 
             'ENGINE': 'django.contrib.gis.db.backends.postgis',
             'PASSWORD': os.environ.get('TRANSPORTATION_SYSTEMS_18_POSTGRES_PASSWORD'),
@@ -167,7 +179,14 @@ if DEBUG == False:
             'HOST': os.environ.get('DISASTER_RESILIENCE_18_POSTGRES_HOST'),
             'PORT': os.environ.get('POSTGRES_PORT')
             },
-        }
+        'housing-affordability': {
+            'ENGINE': 'django.contrib.gis.db.backends.postgis',
+            'PASSWORD': os.environ.get('HOUSING_AFFORDABILITY_18_POSTGRES_PASSWORD'),
+            'NAME': os.environ.get('HOUSING_AFFORDABILITY_18_POSTGRES_NAME'),
+            'USER': os.environ.get('HOUSING_AFFORDABILITY_18_POSTGRES_USER'),
+            'HOST': os.environ.get('HOUSING_AFFORDABILITY_18_POSTGRES_HOST'),
+            'PORT': os.environ.get('POSTGRES_PORT')
+        },
     }
 
 

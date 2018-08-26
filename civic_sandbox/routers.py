@@ -10,6 +10,9 @@ class CivicSandboxRouter(object):
 
         if model._meta.app_label == 'disaster_resilience_18':
             return 'disaster-resilience-disaster'
+        
+        if model._meta.app_label == 'housing_affordability_18':
+            return 'housing-affordability'
         return None
 
     def db_for_write(self, model, **hints):
@@ -25,6 +28,9 @@ class CivicSandboxRouter(object):
 
         if model._meta.app_label == 'disaster_resilience_18':
             return 'disaster-resilience-disaster'
+
+        if model._meta.app_label == 'housing_affordability_18':
+            return 'housing-affordability'
 
         return None
 
@@ -43,4 +49,9 @@ class CivicSandboxRouter(object):
 
         if app_label == 'disaster_resilience_18':
             return db == 'disaster-resilience-disaster'
+
+        if app_label == 'housing_affordability_18':
+            return db == 'housing-affordability'
         return None
+
+        

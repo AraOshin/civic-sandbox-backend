@@ -28,6 +28,7 @@ echo "Migrate"
 python -Wall manage.py migrate --database=$NEIGHBORHOOD_DEVELOPMENT_18_POSTGRES_NAME
 python -Wall manage.py migrate --database=$TRANSPORTATION_SYSTEMS_18_POSTGRES_NAME
 python -Wall manage.py migrate --database=$DISASTER_RESILIENCE_18_POSTGRES_NAME
+python -Wall manage.py migrate --database=$HOUSING_AFFORDABILITY_18_POSTGRES_NAME
 
 echo "Run server..."
 python -Wall manage.py runserver 0.0.0.0:8000

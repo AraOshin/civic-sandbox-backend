@@ -50,5 +50,6 @@ urlpatterns = [
     path('civic-sandbox/neighborhood-development/', include('neighborhood_development_18.urls')), ##TODO replicate url as closely as possible
     path('civic-sandbox/transportation-systems/', include('transportation_systems_18.urls')), ##TODO replicate url as closely as possible
     path('civic-sandbox/disaster-resilience/', include('disaster_resilience_18.urls')), ##TODO replicate url as closely as possible
+    path('civic-sandbox/housing-affordability/', include('housing_affordability_18.urls')), ##TODO replicate url as closely as possible
 
 ]
