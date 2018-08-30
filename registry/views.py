@@ -19,7 +19,9 @@ def sandbox_registry(request, format=None):
         'endpoint', 
         'visualization', 
         'primary_attribute_column',
-        'secondary_attribute_column'
+        'primary_attribute_label',
+        'secondary_attribute_column',
+        'secondary_attribute_label',
         'date_attribute_column',
         'date_granularity',
         'default_date_filter',

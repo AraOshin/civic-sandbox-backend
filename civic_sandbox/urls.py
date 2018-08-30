@@ -45,11 +45,11 @@ from django.urls import path, include
 schema_view = get_swagger_view(title='Civic Sandbox APIs')
 
 urlpatterns = [
-    path('civic-sandbox/', schema_view),
-    path('civic-sandbox/', include('registry.urls')),
-    path('civic-sandbox/neighborhood-development/', include('neighborhood_development_18.urls')), ##TODO replicate url as closely as possible
-    path('civic-sandbox/transportation-systems/', include('transportation_systems_18.urls')), ##TODO replicate url as closely as possible
-    path('civic-sandbox/disaster-resilience/', include('disaster_resilience_18.urls')), ##TODO replicate url as closely as possible
-    path('civic-sandbox/housing-affordability/', include('housing_affordability_18.urls')), ##TODO replicate url as closely as possible
+    path('sandbox/', schema_view),
+    path('sandbox/', include('registry.urls')),
+    path('sandbox/neighborhood-development/', include('neighborhood_development_18.urls')),
+    path('sandbox/transportation-systems/', include('transportation_systems_18.urls')), 
+    path('sandbox/disaster-resilience/', include('disaster_resilience_18.urls')), 
+    path('sandbox/housing-affordability/', include('housing_affordability_18.urls')), 
 
 ]

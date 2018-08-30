@@ -1,58 +1,144 @@
-packages = {
-        'Greenspace': {
-          'description': '',
-          'foundations' : ['024','007'],
-          'default_foundation' : '024',
-          'slides' : ['003', '004', '005'],
-          'default_slide' : ['003', '004']
-          },
-        'Food Access': {
-          'description': '',
-          'foundations' : ['028', '044'],
-          'default_foundation' : '044',
-          'slides' : ['009', '010', '005', '014'],
-          'default_slide' : '010'
-          },
-        'Sweeps': {
-          'description': '',
-          'foundations' : ['045', '007', '024', '025', '026','027'],
-          'default_foundation' : '045',
-          'slides' : ['012', '013', '011', '003', '004'],
-          'default_slide' : ['012',]
-          },
-        'Bikes': {
-          'description': '',
-          'foundations' : ['007'],
-          'default_foundation' : '007',
-          'slides' : ['001', '002', '008', '035', '036'],
-          'default_slide' : ['001', '002']
-          },
-        'Disaster Resilience': {
-          'description': '',
-          'foundations' : ['029', '030', '033', '034'],
-          'default_foundation' : '029',
-          'slides' : ['016'],
-          'default_slide' : ['016']
-          },
-        'Evictions': {
-          'description': '',
-          'foundations' : ['018', '019', '020', '021', '022', '043'],
-          'default_foundation' : '020',
-          'slides' : ['014',  '009', '011', '017'],
-          'default_slide' : ['011']
-          },
-        'Voters': {
-          'description': '',
-          'foundations' : ['037', '038', '039', '040', '041'],
-          'default_foundation' : '037',
-          'slides' : ['009',  '004', '008', '002'],
-          'default_slide' : []
-          },
-        'Transportation': {
-          'description': '',
-          'foundations' : ['042'],
-          'default_foundation' : '042',
-          'slides' : ['031', '032', '015'],
-          'default_slide' : ['031', '032', '015',]
-          },
-    }
+packages = { 
+    'Greenspace': {
+     'description': '',
+     'foundations' : [
+       'neighborhood_development_18_027',
+       'neighborhood_development_18_021'
+       ],
+     'default_foundation' : 'neighborhood_development_18_027',
+     'slides' : [
+       'neighborhood_development_18_003',
+       'neighborhood_development_18_004',
+       'neighborhood_development_18_005'
+       ],
+     'default_slide' : [
+       'neighborhood_development_18_003',
+       'neighborhood_development_18_004'
+       ],
+     },
+    'Food Access': {
+     'description': '',
+     'foundations' : [
+       'Percent Renter Occupied',
+       'poverty rate'
+        ],
+     'default_foundation' : 'poverty rate',
+     'slides' : [
+       'neighborhood_development_18_007',
+       'neighborhood_development_18_008',
+       'neighborhood_development_18_005',
+       'neighborhood_development_18_012'
+       ],
+     'default_slide' : 'neighborhood_development_18_008'
+     },
+    'Sweeps': {
+     'description': '',
+     'foundations' : [
+       'neighborhood_development_18_020',
+       'neighborhood_development_18_021',
+       'neighborhood_development_18_027',
+       'neighborhood_development_18_034',
+       'neighborhood_development_18_028',
+       'neighborhood_development_18_030'
+       ],
+     'default_foundation' : 'neighborhood_development_18_020',
+     'slides' : [
+       'neighborhood_development_18_010',
+       'neighborhood_development_18_011',
+       'neighborhood_development_18_009',
+       'neighborhood_development_18_003',
+       'neighborhood_development_18_004',
+       ],
+     'default_slide' : [
+       'neighborhood_development_18_010',
+       ],
+     },
+    'Bikes': {
+     'description': '',
+     'foundations' : [
+       'neighborhood_development_18_021'
+       ],
+     'default_foundation' : 'neighborhood_development_18_021',
+     'slides' : [
+       'neighborhood_development_18_001',
+       'neighborhood_development_18_002',
+       'neighborhood_development_18_006',
+       'neighborhood_development_18_014',
+       'neighborhood_development_18_013'
+       ],
+     'default_slide' : [
+       'neighborhood_development_18_001',
+       'neighborhood_development_18_002'
+       ],
+     },
+    'Disaster Resilience': {
+     'description': '',
+     'foundations' : [
+       'disaster_resilience_18_002',
+       'disaster_resilience_18_003',
+       'disaster_resilience_18_004',
+       'disaster_resilience_18_005',
+       ],
+     'default_foundation' : 'disaster_resilience_18_002',
+     'slides' : [
+       'disaster_resilience_18_001',
+       ],
+     'default_slide' : [
+       'disaster_resilience_18_001',
+       ]
+     },
+    'Evictions': { 
+     'description': '',
+     'foundations' : [
+       'neighborhood_development_18_022',
+       'neighborhood_development_18_023',
+       'neighborhood_development_18_024',
+       'neighborhood_development_18_025',
+       'neighborhood_development_18_026',
+       'neighborhood_development_18_032',
+       ],
+     'default_foundation' : 'neighborhood_development_18_024',
+     'slides' : [
+       'neighborhood_development_18_012',
+       'neighborhood_development_18_007',
+       'neighborhood_development_18_009',
+       'housing_affordability_18_001'
+       ],
+     'default_slide' : ['neighborhood_development_18_009',]
+     },
+    'Voters': {
+     'description': '',
+     'foundations' : [
+       'neighborhood_development_18_015',
+       'neighborhood_development_18_016',
+       'neighborhood_development_18_017',
+       'neighborhood_development_18_018',
+       'neighborhood_development_18_019'
+       ],
+     'default_foundation' : 'voters18',
+     'slides' : [
+       'neighborhood_development_18_007',
+       'neighborhood_development_18_004',
+       'neighborhood_development_18_006',
+       'neighborhood_development_18_002',
+       ],
+     'default_slide' : []
+     },
+    'Transportation': {
+     'description': '',
+     'foundations' : [
+       'transportation_systems_18_005',
+       ],
+     'default_foundation' : 'transportation_systems_18_005',
+     'slides' : [
+       'transportation_systems_18_001',
+       'transportation_systems_18_003',
+       'transportation_systems_18_004',
+       ],
+     'default_slide' : [
+       'transportation_systems_18_001',
+       'transportation_systems_18_003',
+       'transportation_systems_18_004',
+       ],
+     }
+}

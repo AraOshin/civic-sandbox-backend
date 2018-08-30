@@ -77,7 +77,7 @@ layers = {
 
     'disaster_resilience_18_005': {
           'app_label': 'disaster_resilience_18',
-          'name': 'Points of Interest',
+          'name': 'Census Response Rate',
           'type': 'Slide',
           'endpoint':'',
           'visualization': 'ChoroplethMap',

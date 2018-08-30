@@ -46,14 +46,13 @@ camp_reports_layer = SandboxMaker(
     )
 
 monthly_camp_reports_layer = SandboxMaker(
-    layer_key = 'neighborhood_development_18_045',
+    layer_key = 'neighborhood_development_18_020',
     )
 
 voters_18_25_layer = SandboxMaker(
     layer_key = 'neighborhood_development_18_015',
     )
-
-
+    
 voters_26_32_layer = SandboxMaker(
     layer_key = 'neighborhood_development_18_016',
     )
