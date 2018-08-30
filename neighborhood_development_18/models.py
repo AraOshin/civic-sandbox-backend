@@ -1,11 +1,5 @@
-##TODO: write comments: 
-## geometry column must be named geom, instructions for renaming 
-## updates to the field name for primary or secondary attribute fields must al;so be changed in layers.py 
 
 from django.contrib.gis.db import models
-
-##TODO: add layer key comments: 
-
 
 class BikeParking(models.Model):
     objectid = models.IntegerField(primary_key=True)
@@ -158,21 +152,61 @@ class BusStop(models.Model):
 # #         db_table = 'evictions_blockgroups_scope'
 
 
-# # class NeighborhoodVoterRegistrationByAgeGroup(models.Model):
-# #     neighborhood = models.TextField()
-# #     id = models.IntegerField(primary_key=True)
-# #     year = models.IntegerField()
-# #     pct_18_25 = models.FloatField()
-# #     pct_26_32 = models.FloatField()
-# #     pct_33_39 = models.FloatField()
-# #     pct_40_49 = models.FloatField()
-# #     pct_50_plus = models.FloatField()
-# #     geom = models.GeometryField()
+class Voter18to25(models.Model):
+    neighborhood = models.TextField()
+    id = models.IntegerField(primary_key=True)
+    year = models.IntegerField()
+    pct_18_25 = models.FloatField()
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'neighborhood_voters_ages_over_time_geom'
+        
+class Voter26to32(models.Model):
+    neighborhood = models.TextField()
+    id = models.IntegerField(primary_key=True)
+    year = models.IntegerField()
+    pct_26_32 = models.FloatField()
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'neighborhood_voters_ages_over_time_geom'
+
+class Voter33to39(models.Model):
+    neighborhood = models.TextField()
+    id = models.IntegerField(primary_key=True)
+    year = models.IntegerField()
+    pct_33_39 = models.FloatField()
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'neighborhood_voters_ages_over_time_geom'
+
+class Voter40to49(models.Model):
+    neighborhood = models.TextField()
+    id = models.IntegerField(primary_key=True)
+    year = models.IntegerField()
+    pct_40_49 = models.FloatField()
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'neighborhood_voters_ages_over_time_geom'
+
+class Voter50Plus(models.Model):
+    neighborhood = models.TextField()
+    id = models.IntegerField(primary_key=True)
+    year = models.IntegerField()
+    pct_50_plus = models.FloatField()
+    geom = models.GeometryField()
     
 
-#     # class Meta:
-#     #     managed = False
-#     #     db_table = 'neighborhood_voters_ages_over_time_geom'
+    class Meta:
+        managed = False
+        db_table = 'neighborhood_voters_ages_over_time_geom'
 
 class ReportsByMonth(models.Model):
     id = models.IntegerField(primary_key=True)

@@ -22,7 +22,7 @@ community_gardens_layer = SandboxMaker(
     )
 
 bike_greenways_layer = SandboxMaker(
-    layer_key = 'neighborhood_development_18_008',
+    layer_key = 'neighborhood_development_18_006',
     )
 
 rail_stops_layer = SandboxMaker(
@@ -49,3 +49,23 @@ monthly_camp_reports_layer = SandboxMaker(
     layer_key = 'neighborhood_development_18_045',
     )
 
+voters_18_25_layer = SandboxMaker(
+    layer_key = 'neighborhood_development_18_015',
+    )
+
+
+voters_26_32_layer = SandboxMaker(
+    layer_key = 'neighborhood_development_18_016',
+    )
+
+voters_33_39_layer = SandboxMaker(
+    layer_key = 'neighborhood_development_18_017',
+    )
+
+voters_40_49_layer = SandboxMaker(
+    layer_key = 'neighborhood_development_18_018',
+    )
+
+voters_50_plus_layer = SandboxMaker(
+    layer_key = 'neighborhood_development_18_019',
+    )

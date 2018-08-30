@@ -265,6 +265,97 @@ layers = {
           'min_date': None,
           'max_date': None,
         },
+        'neighborhood_development_18_015': {
+          'app_label': 'neighborhood_development_18',
+          'name': 'Voters 18 to 25',
+          'type': 'Foundation',
+          'endpoint':'',
+          'visualization': 'ChoroplethMap',
+          'multi_geom_class': MultiPolygon, 
+          'model_name': models.Voter18to25,
+          'primary_attribute_column': 'pct_18_25', # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': 'Registered Voters 18 to 25',
+          'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': None,
+          'date_attribute_column': 'year', 
+          'date_granularity': 'year',
+          'default_date_filter': '2016',
+          'min_date': '2006',
+          'max_date': '2016',
+        },
+        'neighborhood_development_18_016': {
+          'app_label': 'neighborhood_development_18',
+          'name': 'Voters 26 to 32',
+          'type': 'Foundation',
+          'endpoint':'',
+          'visualization': 'ChoroplethMap',
+          'multi_geom_class': MultiPolygon, 
+          'model_name': models.Voter26to32,
+          'primary_attribute_column': 'pct_26_32', # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': 'Registered Voters 26 to 32',
+          'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': None,
+          'date_attribute_column': 'year', 
+          'date_granularity': 'year',
+          'default_date_filter': '2016',
+          'min_date': '2006',
+          'max_date': '2016',
+        },
+        'neighborhood_development_18_017': {
+          'app_label': 'neighborhood_development_18',
+          'name': 'Voters 33 to 39',
+          'type': 'Foundation',
+          'endpoint':'',
+          'visualization': 'ChoroplethMap',
+          'multi_geom_class': MultiPolygon, 
+          'model_name': models.Voter33to39,
+          'primary_attribute_column': 'pct_33_39', # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': 'Registered Voters 33 to 39',
+          'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': None,
+          'date_attribute_column': 'year', 
+          'date_granularity': 'year',
+          'default_date_filter': '2016',
+          'min_date': '2006',
+          'max_date': '2016',
+        },
+        'neighborhood_development_18_018': {
+          'app_label': 'neighborhood_development_18',
+          'name': 'Voters 40 to 49',
+          'type': 'Foundation',
+          'endpoint':'',
+          'visualization': 'ChoroplethMap',
+          'multi_geom_class': MultiPolygon, 
+          'model_name': models.Voter40to49,
+          'primary_attribute_column': 'pct_40_49', # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': 'Registered Voters 40 to 49',
+          'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': None,
+          'date_attribute_column': 'year', 
+          'date_granularity': 'year',
+          'default_date_filter': '2016',
+          'min_date': '2006',
+          'max_date': '2016',
+        },
+        'neighborhood_development_18_019': {
+          'app_label': 'neighborhood_development_18',
+          'name': 'Voters 50 Plus',
+          'type': 'Foundation',
+          'endpoint':'',
+          'visualization': 'ChoroplethMap',
+          'multi_geom_class': MultiPolygon, 
+          'model_name': models.Voter50Plus,
+          'primary_attribute_column': 'pct_50_plus', # When updating primary_attribute_column, update in model as well
+          'primary_attribute_label': 'Registered Voters 50 plus',
+          'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
+          'secondary_attribute_label': None,
+          'date_attribute_column': 'year', 
+          'date_granularity': 'year',
+          'default_date_filter': '2016',
+          'min_date': '2006',
+          'max_date': '2016',
+        },
+
 }
 
 
