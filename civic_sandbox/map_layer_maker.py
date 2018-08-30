@@ -14,54 +14,9 @@ from .all_layers import layers
 class SandboxMaker: 
     def __init__(self, layer_key):
         self.model_name = layers[layer_key]['model_name']
-        # self.app_label = layers[layer_key]['app_label']
-        # self.db_table_name = layers[layer_key]['db_table_name']
-        # self.id_column = layers[layer_key]['id_column']
-        # self.id_column_type = layers[layer_key]['id_column_type']
-        # self.geom_column = layers[layer_key]['geom_column']
-        # self.geom_column_type = layers[layer_key]['geom_column_type']
         self.multi_geom_class = layers[layer_key]['multi_geom_class']
-        # self.primary_attribute_column = layers[layer_key]['primary_attribute_column']
-        # self.primary_attribute_column_type = layers[layer_key]['primary_attribute_column_type']
-        # self.primary_attribute_column_args = layers[layer_key]['primary_attribute_column_args']
-        # self.secondary_attribute_column = layers[layer_key]['secondary_attribute_column']
-        # self.secondary_attribute_column_type = layers[layer_key]['secondary_attribute_column_type']
         self.date_attribute_column = layers[layer_key]['date_attribute_column'] 
-        # self.date_attribute_column_type = layers[layer_key]['date_attribute_column_type']
         self.default_date_filter = layers[layer_key]['default_date_filter']
-
-        # self.model_class = self.get_model()
-        
-
-    # def get_model(self):
-
-
-    #     class Meta:
-    #         managed = False
-    #         db_table = self.db_table_name
-    #         app_label = self.app_label
-
-    #     attrs = {
-    #         self.id_column: getattr(models, self.id_column_type)(primary_key=True),
-    #         'geom': getattr(models, self.geom_column_type)(db_column=self.geom_column),
-    #         '__module__': 'civic_sandbox.models', 
-    #         'Meta': Meta
-    #     }
-
-    #     if self.primary_attribute_column is not None: 
-    #         attrs[self.primary_attribute_column] = getattr(models, self.primary_attribute_column_type)(max_length=self.max_length)
-                
-    #     if self.secondary_attribute_column is not None: 
-    #         attrs[self.secondary_attribute_column] = getattr(models, self.secondary_attribute_column_type)(max_length=300)
-        
-    #     if self.date_attribute_column is not None: 
-    #         attrs[self.date_attribute_column] = getattr(models, self.date_attribute_column_type)(max_length=50) ##TODO max_length dynamic or use TextField? 
-                
-
-    #     SandboxModel = type(self.model_name, (models.Model,), attrs)
-
-
-    #     return SandboxModel
     
     def get_serializer(self):
     
@@ -122,7 +77,6 @@ class SandboxMaker:
             response= { 
                 'meta': {
                     'boundary': [json.loads(limit_boundary)],
-                    ##TODO add calculated min and max date 
                     },
                 'data': serializer.data
             }

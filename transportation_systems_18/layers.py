@@ -65,7 +65,7 @@ layers = {
           'multi_geom_class': MultiPoint, 
           'model_name': models.RouteChange,
           'primary_attribute_column': 'pct_change', # When updating primary_attribute_column, update in model as well
-          'primary_attribute_label': 'Ridership Change from 2009 to 2017', ##TODO
+          'primary_attribute_label': 'Ridership Change from 2009 to 2017',
           'secondary_attribute_column': None, # When updating secondary_attribute_column, update in model as well
           'secondary_attribute_label': None,
           'date_attribute_column': None,

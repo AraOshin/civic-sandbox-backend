@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^slides/demolitions/(?P<date_filter>.+)/', views.demolitions_layer.get_view()),
     url(r'^slides/demolitions/', views.demolitions_layer.get_view()),
     url(r'^slides/bike-lanes/', views.bike_lanes_layer.get_view()),
-    url(r'^foundations/monthly-camp-reports/(?P<date_filter>.+)/', views.monthly_camp_reports_layer.get_view()),##TODO fix date filter 
+    url(r'^foundations/monthly-camp-reports/(?P<date_filter>.+)/', views.monthly_camp_reports_layer.get_view()),
     url(r'^foundations/monthly-camp-reports/', views.monthly_camp_reports_layer.get_view()),
     url(r'^slides/parks/', views.parks_layer.get_view()),
     url(r'^slides/multiuse-trails/', views.multiuse_trails_layer.get_view()),
